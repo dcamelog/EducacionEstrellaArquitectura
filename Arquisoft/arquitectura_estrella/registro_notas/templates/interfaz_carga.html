@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,16 +11,20 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Subir registro academico</title>
-        <link rel="stylesheet" href="main.css">
+        <!--<link rel="stylesheet" href="main.css"> -->
     </head>
     <body>
         <div class="drag-area">
-            <h2>Arrastra y suelta imagenes</h2>   
-            <span>O</span>
-            <button>Selecciona tus archivos</button>
-            <input type="file" name="" id="input-file" hidden multiple />
+            <!--<h2>Arrastra y suelta imagenes</h2>   
+            <span>O</span>-->
+            {% csrf_token %}
+            <input type="file" name="myfile" />
+            <button type="submit">Selecciona tus archivos</button>
         </div>
-        <div id="preview"></div>    
-        <script src="" async defer></script>
+        
+
+        {% if uploaded_file_url %}
+        <p> Archivo subido en: <a href="{{ uploaded_file_url }}">{{uploaded_file_url}}</a> </p>
+        {% endif %}
     </body>
 </html>
