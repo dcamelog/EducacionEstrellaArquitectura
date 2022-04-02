@@ -78,7 +78,11 @@ WSGI_APPLICATION = 'arquitectura_estrella.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'academic_db',
+        'USER':'academic_user',
+        'PASSWORD':'isis2503',
+        'HOST':'172.24.41.143',
+        'PORT':'5432',
     }
 }
 
