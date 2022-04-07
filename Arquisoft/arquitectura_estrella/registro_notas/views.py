@@ -4,19 +4,24 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from kafka import KafkaProducer
+from kafka import KafkaConsumer
+from json import loads
+import threading
 
 def index(request):
     return render(request, 'interfaz_carga.html')
 
 def simple_upload(request):
-    
     if request.method == 'POST' and request.FILES['myfile']:
         myfile=request.FILES['myfile']
         fs = FileSystemStorage()
         filename= fs.save(myfile.name, myfile)
-        
         uploaded_file_url =fs.url(filename)
         return render(request, 'interfaz_carga.html', {
             'uploaded_file_url':uploaded_file_url
         })
+        
     return render(request,'interfaz_carga.html')
