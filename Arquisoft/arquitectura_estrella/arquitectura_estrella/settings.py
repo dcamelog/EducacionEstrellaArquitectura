@@ -26,7 +26,31 @@ SECRET_KEY = 'django-insecure-9qfigw@388+pe5(99b2aqx9^ompsd5zclb0irkr*qe+eo(ii6m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.24.41.144', '172.24.41.146']
+ALLOWED_HOSTS = ['172.24.41.144', '172.24.41.146','54.158.22.84','52.73.8.54']
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-ot3xuai3.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F52.73.8.54:8000/registro_notas" 
+
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-ot3xuai3.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = '9Oh3BSY7ro9hyyuD8FvKCSPnymUd91Hn'
+SOCIAL_AUTH_AUTH0_SECRET = '8_eu9Zz6nT4PERg1WqHlLzm83knTr1-Ux3cEBA2eezOMfvcj_AW186XkvAtesxnu' 
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+   'openid',
+   'profile',
+   'email',
+   'role',
+]
+
+AUTHENTICATION_BACKENDS = {
+  'arquitectura_estrella.auth0backend.Auth0',
+  'django.contrib.auth.backends.ModelBackend',
+}
+
+
+
 
 
 # Application definition
@@ -40,6 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'estado_academico',
     'registro_notas',
+    'social_django',
 ]
 
 MIDDLEWARE = [
