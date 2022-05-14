@@ -33,7 +33,10 @@ def logout(request):
     return_to = 'http://52.201.214.34:8000/registro_notas' 
     return redirect(f'https://{domain}/v2/logout?client_id={client_id}&returnTo={return_to}')
 
-def hand_crafted_redirect_view(request):
+def hand_crafted_redirect(request):
   response = HttpResponse(status=500)
   response['Location'] = '/redirect/fail/'
   return response
+
+def redirect(request):
+    return redirect('/redirect/fail/')
