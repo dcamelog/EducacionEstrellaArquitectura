@@ -77,6 +77,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = (
+    'middleware.shadowdconnector.shadowdconnector',
+)
+
 ROOT_URLCONF = 'arquitectura_estrella.urls'
 
 TEMPLATES = [
