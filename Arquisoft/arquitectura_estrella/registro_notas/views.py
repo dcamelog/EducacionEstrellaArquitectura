@@ -30,7 +30,7 @@ def logout(request):
     django_logout(request)
     domain = 'dev-ot3xuai3.us.auth0.com'
     client_id = '9Oh3BSY7ro9hyyuD8FvKCSPnymUd91Hn'
-    return_to = 'http://52.201.214.34:8000/registro_notas' 
+    return_to = 'http://52.73.8.54:8000/registro_notas' 
     return redirect(f'https://{domain}/v2/logout?client_id={client_id}&returnTo={return_to}')
 
 def hand_crafted_redirect(request):
